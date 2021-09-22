@@ -72,7 +72,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
     action {
       category = "Deploy"
       configuration = {
-        "BucketName" = aws_s3_bucket.cicd_kalashapp.bucket
+        "BucketName" = aws_s3_bucket.kalash-cicd.bucket
         "Extract"    = "true"
       }
       input_artifacts = [
