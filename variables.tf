@@ -1,11 +1,11 @@
 variable "env" {
   description = "Depolyment environment"
-  default     = "dev"
+  default     = "devdemo"
 }
 
 variable "region" {
   description = "AWS region"
-  default     = "eu-west-1"
+  default     = "us-east-2"
 }
 
 variable "repository_branch" {
@@ -37,5 +37,5 @@ variable "github_token" {
 }
 
 output "web_public_url" {
-  value = aws_s3_bucket.kalash-cicd.website_endpoint
+  value = aws_s3_bucket.static_web_bucket.website_endpoint
 }
