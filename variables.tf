@@ -37,5 +37,5 @@ variable "github_token" {
 }
 
 output "web_public_url" {
-  value = aws_s3_bucket.static_web_bucket_kalash.website_endpoint
+  value = aws_s3_bucket.static_web_bucket_kalashapp.website_endpoint
 }
