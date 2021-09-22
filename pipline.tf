@@ -6,7 +6,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
   }
 
   artifact_store {
-    location = aws_s3_bucket.artifacts_bucket.bucket
+    location = aws_s3_bucket.artifacts_bucket_kalash.bucket
     type     = "S3"
   }
 
@@ -72,7 +72,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
     action {
       category = "Deploy"
       configuration = {
-        "BucketName" = aws_s3_bucket.static_web_bucket.bucket
+        "BucketName" = aws_s3_bucket.static_web_bucket_kalash.bucket
         "Extract"    = "true"
       }
       input_artifacts = [

@@ -15,7 +15,7 @@ variable "repository_branch" {
 
 variable "repository_owner" {
   description = "GitHub repository owner"
-  default     = "stojce"
+  default     = "kalashPalwanda"
 }
 
 variable "repository_name" {
@@ -37,5 +37,5 @@ variable "github_token" {
 }
 
 output "web_public_url" {
-  value = aws_s3_bucket.static_web_bucket.website_endpoint
+  value = aws_s3_bucket.static_web_bucket_kalash.website_endpoint
 }
