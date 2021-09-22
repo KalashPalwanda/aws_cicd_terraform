@@ -5,7 +5,7 @@ variable "env" {
 
 variable "region" {
   description = "AWS region"
-  default     = "us-east-2"
+  default     = "eu-west-1"
 }
 
 variable "repository_branch" {
