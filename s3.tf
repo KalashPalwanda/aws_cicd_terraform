@@ -6,7 +6,7 @@ data "template_file" "s3_policy" {
   }
 }
 
-resource "aws_s3_bucket" "static_web_bucket" {
+resource "aws_s3_bucket" "static_web_bucket1" {
   bucket = var.static_web_bucket_name
   acl    = "public-read"
   policy = data.template_file.s3_policy.rendered
