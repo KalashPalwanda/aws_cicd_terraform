@@ -18,7 +18,6 @@ resource "aws_codepipeline" "static_web_pipeline" {
       configuration = {
         "Branch" = var.repository_branch
         "Owner" = var.repository_owner
-       "provider" = "CodeStarSourceConnection"
         "PollForSourceChanges" = "false"
         "Repo" = var.repository_name
         OAuthToken             = var.github_token
@@ -30,7 +29,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
         "SourceArtifact",
       ]
       owner     = "ThirdParty"
-      provider  = "GitHub"
+      provider  = "CodeStarSourceConnection"
       run_order = 1
       version   = "1"
     }
