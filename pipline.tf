@@ -11,30 +11,22 @@ resource "aws_codepipeline" "static_web_pipeline" {
   }
 
   stage {
-    name = "Source"
-
-    action {
-      category = "Source"
-      configuration = {
-        "Branch" = var.repository_branch
-        "Owner" = var.repository_owner
-        "PollForSourceChanges" = "false"
-        "Repo" = var.repository_name
-        OAuthToken             = var.github_token
-        
-}
- input_artifacts = []
-      name            = "Source"
-      output_artifacts = [
-        "SourceArtifact",
-      ]
-      owner     = "ThirdParty"
-      provider  = "GitHub"
-      run_order = 1
-      version   = "1"
+        name = "Source"
+        action{
+            name = "Source"
+            category = "Source"
+            owner = "AWS"
+            provider = "CodeStarSourceConnection"
+            version = "1"
+            output_artifacts = ["SourceArtifact"]
+            configuration = {
+                FullRepositoryId = "KalashPalwanda/static-web-example"
+                BranchName   = "master"
+                ConnectionArn = var.codestar_connector_credentials
+                OutputArtifactFormat = "CODE_ZIP"
+            }
+        }
     }
-  }
-
   stage {
     name = "Build"
 
