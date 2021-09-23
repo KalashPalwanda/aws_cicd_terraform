@@ -21,7 +21,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
             output_artifacts = ["SourceArtifact"]
             configuration = {
                 FullRepositoryId = "KalashPalwanda/static-web-example"
-                BranchName   = "master"
+                BranchName   = "main"
                 ConnectionArn = var.codestar_connector_credentials
                 OutputArtifactFormat = "CODE_ZIP"
             }
