@@ -19,7 +19,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
         "Branch" = var.repository_branch
         "Owner" = var.repository_owner
         "PollForSourceChanges" = "false"
-        "Repo" = var.repository_name name = "Source"
+        "Repo" = var.repository_name
         OAuthToken             = var.github_token
 }
  input_artifacts = []
