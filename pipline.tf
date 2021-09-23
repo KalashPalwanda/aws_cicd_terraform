@@ -16,11 +16,13 @@ resource "aws_codepipeline" "static_web_pipeline" {
     action {
       category = "Source"
       configuration = {
-        ConnectionArn    = arn:aws:codestar-connections:eu-west-1:202987360469:connection/b91df482-a523-4859-b9db-4a47ade86b4e
-        FullRepositoryId = "KalashPalwanda/static-web-example"
-        BranchName       = "main"
-      }
-     input_artifacts = []
+        "Branch" = var.repository_branch
+        "Owner" = var.repository_owner
+        "PollForSourceChanges" = "false"
+        "Repo" = var.repository_name name = "Source"
+        OAuthToken             = var.github_token
+}
+ input_artifacts = []
       name            = "Source"
       output_artifacts = [
         "SourceArtifact",
