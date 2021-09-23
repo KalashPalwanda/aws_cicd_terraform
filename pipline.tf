@@ -18,7 +18,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
       configuration = {
         "Branch" = var.repository_branch
         "Owner" = var.repository_owner
-        provider = "CodeStarSourceConnection"
+       "provider" = "CodeStarSourceConnection"
         "PollForSourceChanges" = "false"
         "Repo" = var.repository_name
         OAuthToken             = var.github_token
