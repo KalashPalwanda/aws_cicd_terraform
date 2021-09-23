@@ -21,7 +21,7 @@ resource "aws_codepipeline" "static_web_pipeline" {
         "PollForSourceChanges" = "false"
         "Repo" = var.repository_name
         OAuthToken             = var.github_token
-        ConnectionArn = var.codestar_connector_credentials
+        
 }
  input_artifacts = []
       name            = "Source"
