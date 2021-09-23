@@ -32,7 +32,10 @@ variable "artifacts_bucket_name" {
   description = "S3 Bucket for storing artifacts"
   default     = "static-web-example-artifacts1"
 }
-
+variable "codestar_connector_credentials" {
+  description = "connection for github source"  
+  default = "arn:aws:codestar-connections:us-east-2:202987360469:connection/75b6d88e-2eca-4485-926b-2dfae513fefb"
+}
 variable "github_token" {
 }
 
