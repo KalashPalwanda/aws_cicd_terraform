@@ -16,24 +16,18 @@ resource "aws_codepipeline" "static_web_pipeline" {
     action {
       category = "Source"
       configuration = {
-        "Branch"               = var.repository_branch
-        "Owner"                = var.repository_owner
-        "PollForSourceChanges" = "false"
-        "Repo"                 = var.repository_name
-        OAuthToken             = var.github_token
-      }
-
-      input_artifacts = []
-      name            = "Source"
-      output_artifacts = [
-        "SourceArtifact",
-      ]
-      owner     = "ThirdParty"
+        "Branch" = var.repository_branch
+        "Owner" = var.repository_owner input_artifacts = []
+        "PollForSourceChanges" = "false" name = "Source"
+        "Repo" = var.repository_name output_artifacts = [
+        OAuthToken = var.github_token "SourceArtifact",
+      }            owner     = "ThirdParty"
       provider  = "GitHub"
       run_order = 1
       version   = "1"
     }
   }
+
   stage {
     name = "Build"
 
